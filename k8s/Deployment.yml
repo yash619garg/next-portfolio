@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+
+matadata:
+  name: portfolio-deployment
+  namespace: portfolio-ns
+  labels:
+    app: portfolio
+
+spec:
+  replicas:3
+  selector:
+    matchLabels:
+      app: portfolio
+  template:
+    metadata:
+      labels:
+        app: portfolio
+    spec:
+      containers:
+	- name: portfolio
+	  image: yash619garg/next-portfolio:latest
+          ports:
+	    - containerPort: 3000
+     
