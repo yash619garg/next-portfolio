@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+
+metadata:
+  name: portfolio-svc
+  namespace: portfolio-ns
+
+spec:
+  selector:
+    app: portfolio
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000

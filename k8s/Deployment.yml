@@ -1,25 +1,27 @@
 kind: Deployment
 apiVersion: apps/v1
 
-matadata:
+metadata:
   name: portfolio-deployment
   namespace: portfolio-ns
   labels:
     app: portfolio
 
 spec:
-  replicas:3
+  replicas: 3
   selector:
     matchLabels:
       app: portfolio
   template:
     metadata:
+      name: portfolio-pod
+      namespace: portfolio-ns
       labels:
         app: portfolio
     spec:
       containers:
-	- name: portfolio
-	  image: yash619garg/next-portfolio:latest
+        - name: portfolio
+          image: yash619garg/next-portfolio:latest
           ports:
-	    - containerPort: 3000
+             - containerPort: 3000
      
